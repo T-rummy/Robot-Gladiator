@@ -11,11 +11,24 @@ var enemyAttack = 12;
 
 var fight = function (enemyNames) {
 
-         while (enemyHealth > 0) {
+         while (enemyHealth > 0 && playerHealth > 0) {
 
             var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
 
-            if (promptFight === "fight" || promptFight === "Fight") {
+             if (promptFight === "skip" || promptFight === "SKIP") {
+
+                var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+              if (confirmSkip) {
+    
+                    window.alert (playerName + " has decided to leave the fight. Goodbye!");
+
+                    playerMoney = playerMoney - 10;
+
+                    console.log("Player Money " + playerMoney);
+                    break;
+    
+                }
+            }
 
 
                 //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
@@ -31,7 +44,10 @@ var fight = function (enemyNames) {
 
                 if (enemyHealth <= 0) {
                  window.alert(enemyNames + " has died!");
-                    }
+
+                 break;
+                    
+                }
             
                     else{
                 
@@ -53,28 +69,18 @@ var fight = function (enemyNames) {
 
                         window.alert(playerName + " has died!");
 
+                        break;
+
                         }
                         else {
                         window.alert (playerName + " still has " + playerHealth + " health left." );
                         }
 
-                    } else if (promptFight === "skip" || promptFight === "SKIP") {
-
-                        var confirmSkip = window.confirm("Are you sure you'd like to quit?")
-                        if (confirmSkip) {
-                            window.alert (playerName + " has decided to leave the fight. Goodbye!")
-
-                            playerMoney = playerMoney -2;
-                        } 
-                        else {
-                            fight();
-                        }
                     }
-                    else { window.alert("You need to choose a valid option. Try Again!");
+                
 
         }
-    }
-}
+
 
 
 for (var i = 0; i < enemyNames.length; i++) {
