@@ -10,6 +10,10 @@ var enemyHealth = 50;
 var enemyAttack = 12;
 
 var fight = function (enemyNames) {
+<<<<<<< HEAD
+=======
+    window.alert("Welcome to Robot Gladiators!");
+>>>>>>> fbb6fa747b1c06fd605f5fd516db588b3ffde4e2
 
          while (enemyHealth > 0) {
 
@@ -24,11 +28,16 @@ var fight = function (enemyNames) {
   
                  // Log a resulting message to the console so we know that it worked.
 
+<<<<<<< HEAD
                 console.log(playerName + " attacked " + enemyNames + ". " + enemyNames + " now has " + enemyHealth + " health remaining.");
+=======
+         console.log(playerName + " attacked " + enemyNames + ". " + enemyNames + " now has " + enemyHealth + " health remaining.");
+>>>>>>> fbb6fa747b1c06fd605f5fd516db588b3ffde4e2
 
                  //check enemy health
   
 
+<<<<<<< HEAD
                 if (enemyHealth <= 0) {
                  window.alert(enemyNames + " has died!");
                     }
@@ -36,6 +45,15 @@ var fight = function (enemyNames) {
                     else{
                 
                     window.alert(enemyNames + " still has " + enemyHealth + " health left.");
+=======
+        if (enemyHealth <= 0) {
+            window.alert(enemyNames + " has died!");
+            }
+    
+            else{
+        
+            window.alert(enemyNames + " still has " + enemyHealth + " health left.");
+>>>>>>> fbb6fa747b1c06fd605f5fd516db588b3ffde4e2
 
                     }
         
@@ -45,7 +63,11 @@ var fight = function (enemyNames) {
         
                     // Log a resulting message to the console so we know that it worked.
 
+<<<<<<< HEAD
                     console.log(enemyNames + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+=======
+            console.log(enemyNames + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+>>>>>>> fbb6fa747b1c06fd605f5fd516db588b3ffde4e2
 
                 //chack players health 
 
@@ -78,11 +100,15 @@ var fight = function (enemyNames) {
 
 
 for (var i = 0; i < enemyNames.length; i++) {
+<<<<<<< HEAD
    
     var pickedEnemyNames = enemyNames[i];
 
     enemyHealth = 50;
     
    fight(pickedEnemyNames);
+=======
+    fight(enemyNames[i]);
+>>>>>>> fbb6fa747b1c06fd605f5fd516db588b3ffde4e2
 }
 
