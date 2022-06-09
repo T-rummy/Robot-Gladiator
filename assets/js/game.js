@@ -23,7 +23,7 @@ var fight = function (enemyNames) {
     
                     window.alert (playerName + " has decided to leave the fight. Goodbye!");
 
-                    playerMoney = playerMoney - 10;
+                    playerMoney = Math.max(0, playerMoney - 10);
 
                     console.log("Player Money " + playerMoney);
                     break;
@@ -33,8 +33,9 @@ var fight = function (enemyNames) {
 
 
                 //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
+                var damage = randomNumber(playerAttack - 3, playerAttack)
 
-                 enemyHealth = enemyHealth - playerAttack;
+                 enemyHealth = Math.max(0, enemyHealth - damage);
   
                  // Log a resulting message to the console so we know that it worked.
 
@@ -58,7 +59,9 @@ var fight = function (enemyNames) {
         
                     // Subtract the value of `enemyAttack` from the value of `playerHealth` and use that result to update the value in the `playerHealth` variable.
 
-                        playerHealth = playerHealth - enemyAttack;
+                        var damage = randomNumber(enemyAttack - 3, enemyAttack);
+
+                        playerHealth = Math.max(0, playerHealth - damage);
         
                     // Log a resulting message to the console so we know that it worked.
 
@@ -81,7 +84,7 @@ var fight = function (enemyNames) {
                     }
                 
 
-        }
+        };
 
 
 
@@ -99,7 +102,7 @@ var startGame = function () {
     
         var pickedEnemyNames = enemyNames[i];
 
-        enemyHealth = 50;
+        enemyHealth = randomNumber(40, 60);
         
     fight(pickedEnemyNames);
 
@@ -124,7 +127,7 @@ var startGame = function () {
 
 var endGame = function() {
     if(playerHealth > 0) {
-        window.alert("Great job, you survived the game! You niw have a score of " + playerMoney + ".");
+        window.alert("Great job, you survived the game! You now have a score of " + playerMoney + ".");
     }
     else { 
         window.alert("You've lost your robot in battle.");
@@ -140,7 +143,7 @@ var endGame = function() {
     else {
         window.alert("Thank you for playing Robot Gladiators! Come back soon!")
     }
-}
+};
 
 var shop = function() {
     
@@ -191,5 +194,11 @@ var shop = function() {
     }
 
 };
+
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+    return value;
+}
 startGame();
 
